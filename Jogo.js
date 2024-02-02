@@ -1,6 +1,26 @@
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 15
+
+var criaMosquitoTempo = 1500
+
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+if( nivel === 'Normal'){
+   //1500
+   var criaMosquitoTempo = 1500
+
+}else if(nivel === 'Dificíl'){
+  // 1000
+  var criaMosquitoTempo = 1000
+
+}else if(nivel === 'Hard'){
+  //500
+  var criaMosquitoTempo = 750
+
+}
 
 
 function areaJogoMataMosquito(){
@@ -14,6 +34,20 @@ console.log(largura, altura)
 
 areaJogoMataMosquito()
 
+var cronometro = setInterval(function(){
+  tempo  -= 1
+
+  if(tempo < 0){
+    clearInterval(criaMosca)
+    clearInterval(cronometro)
+    window.location.href = "Vitoria.html"
+  }else{
+
+  }
+  document.getElementById('cronometro').innerHTML = tempo
+  
+}, 1000)
+
 function posicaoRandomica(){
 
     // remover o mosquito anterior (caso exista)
@@ -23,7 +57,7 @@ function posicaoRandomica(){
     //console.log('elemento selecionado foi' + vidas)
   if(vidas>3){
 
-    alert('interromper o jogo (Game Over)')
+    window.location.href = "fim_de_jogo.html"
   } else{
     document.getElementById('v' + vidas).src="imagens/coracao_vazio.png"
     
