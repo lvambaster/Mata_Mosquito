@@ -5,13 +5,16 @@
 
 html{
    cursor: url(imagens/mata_mosca.png) 30 30, auto;
+   
 }
 
 
 body{
-   background-image: url(imagens/bg.jpg);
+   background: url('imagens/bg.jpg') no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
    background-size: cover;
-   background-repeat: no-repeat;
 }
 
 .mosquito1{
